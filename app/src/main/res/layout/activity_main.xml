@@ -44,7 +44,7 @@
             android:layout_marginRight="15dp" />
     </LinearLayout>
 
-    <ListView
+    <app.invictus.widget.android.RefreshableListView
         android:layout_width="wrap_content"
         android:layout_height="370dp"
         android:id="@+id/list"
@@ -55,6 +55,19 @@
         android:descendantFocusability="blocksDescendants"
         android:listSelector="@android:color/white"
         android:dividerHeight="0dp" />
+
+
+    <!--<ListView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="370dp"-->
+        <!--android:id="@+id/list"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:divider="@null"-->
+        <!--android:descendantFocusability="blocksDescendants"-->
+        <!--android:listSelector="@android:color/white"-->
+        <!--android:dividerHeight="0dp" />-->
 
     <ImageView
         android:layout_width="match_parent"

@@ -21,11 +21,12 @@ import android.widget.RelativeLayout;
 
 import app.invictus.listAdapters.CommentListAdapter;
 import app.invictus.listAdapters.MainListAdapter;
+import app.invictus.widget.android.NewDataTask;
+import app.invictus.widget.android.RefreshableListView;
 
+    public class InvictusComment extends Activity {
 
-public class InvictusComment extends Activity {
-
-    private ListView listView;
+    private RefreshableListView mListView;
     private EditText editText;
 
     private Button commentButton;
@@ -87,10 +88,18 @@ public class InvictusComment extends Activity {
     }
 
     private void listHandler() {
-        listView = (ListView) findViewById(R.id.list);
         CommentListAdapter listAdapter = new CommentListAdapter(
                 this, userName, userComment, userDate, userImage);
-        listView.setClickable(false);
-        listView.setAdapter(listAdapter);
+        mListView = (RefreshableListView)findViewById(R.id.list);
+        mListView.setAdapter(listAdapter);
+
+        // Callback to refresh the list
+        mListView.setOnRefreshListener(new RefreshableListView.OnRefreshListener() {
+
+            @Override
+            public void onRefresh(RefreshableListView listView) {
+                new NewDataTask(mListView).execute();
+            }
+        });
     }
 }

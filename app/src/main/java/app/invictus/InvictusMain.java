@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -12,10 +13,12 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import app.invictus.listAdapters.MainListAdapter;
+import app.invictus.widget.android.NewDataTask;
+import app.invictus.widget.android.RefreshableListView;
 
 public class InvictusMain extends Activity {
 
-    private ListView listView;
+    private RefreshableListView mListView;
 
     private Button performanceButton;
     private Button fitnessButton;
@@ -37,6 +40,13 @@ public class InvictusMain extends Activity {
         listHandler();
         buttonsHandlers();
         actionBarHandler();
+
+        /* Drawing button */
+        final Drawable[] drawableToPressed = {getResources().getDrawable(R.drawable.button_shape_header_normal),
+                getResources().getDrawable(R.drawable.button_shape_header_pressed)};
+        TransitionDrawable a = new TransitionDrawable(drawableToPressed);
+        performanceButton.setBackgroundDrawable(a);
+        a.startTransition(0);
     }
 
     private void actionBarHandler() {
@@ -51,12 +61,21 @@ public class InvictusMain extends Activity {
     }
 
     private void listHandler() {
-        listView = (ListView) findViewById(R.id.list);
         invictusHttpHandler.makeHttpRequest(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("date", ""));
         MainListAdapter listAdapter = new MainListAdapter(
                 this, invictusHttpHandler.getWorkoutDate(), invictusHttpHandler.getworkoutDescription());
-        listView.setClickable(true);
-        listView.setAdapter(listAdapter);
+
+        mListView = (RefreshableListView)findViewById(R.id.list);
+        mListView.setAdapter(listAdapter);
+
+        // Callback to refresh the list
+        mListView.setOnRefreshListener(new RefreshableListView.OnRefreshListener() {
+
+            @Override
+            public void onRefresh(RefreshableListView listView) {
+                new NewDataTask(mListView).execute();
+            }
+        });
     }
 
     private void buttonsHandlers() {
