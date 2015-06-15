@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Crossfit Invictus</string>
+    
+    <string name="action_settings">Settings</string>
+    <string name="action_email">Email</string>
+
+    <string name="title_activity_main">Activity Main</string>
+    <string name="title_activity_invictus_settings">InvictusSettings</string>
+    <string name="title_activity_invictus_notes">InvictusNotes</string>
+    <string name="title_activity_invictus_comment">InvictusComment</string>
+
+    <string name="facebook_app_id">421641554684494</string>
+
+</resources>

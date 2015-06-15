@@ -1,0 +1,55 @@
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffffff"
+    android:id="@+id/mainLayout"
+    android:clickable="false"
+    android:weightSum="1"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="  Add New Comment:"
+        android:id="@+id/facebookUserName"
+        android:textStyle="italic"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userCommentText"
+        android:layout_below="@+id/facebookUserName"
+        android:layout_alignParentStart="true"
+        android:hint="Your comment .." />
+
+    <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="  Add a comment"
+            android:id="@+id/commentButton"
+            android:layout_below="@+id/editText"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/button_shape_header_normal"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp" />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/list"
+        android:background="@android:color/white"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="@null"
+        android:descendantFocusability="blocksDescendants"
+        android:listSelector="@android:color/white"
+        android:dividerHeight="0dp"
+        android:layout_marginTop="5dp" />
+
+</LinearLayout>
