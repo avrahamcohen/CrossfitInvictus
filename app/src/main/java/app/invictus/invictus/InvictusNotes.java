@@ -1,4 +1,4 @@
-package app.invictus;
+package app.invictus.invictus;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import app.invictus.R;
 
 public class InvictusNotes extends Activity {
 

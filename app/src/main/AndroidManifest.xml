@@ -24,14 +24,14 @@
     <uses-permission android:name="app.invictus.permission.C2D_MESSAGE" />
 
     <application
-        android:name=".InvictusApplication"
+        android:name=".invictus.InvictusApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".InvictusSplash"
+            android:name=".invictus.InvictusSplash"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoBar" >
@@ -42,24 +42,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".InvictusMain"
+            android:name=".invictus.InvictusMain"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".InvictusSettings"
+            android:name=".invictus.InvictusSettings"
             android:label="@string/title_activity_invictus_settings"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
         </activity>
         <activity
-            android:name=".InvictusNotes"
+            android:name=".invictus.InvictusNotes"
             android:label="@string/title_activity_invictus_notes"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" >
         </activity>
         <activity
-            android:name=".InvictusComment"
+            android:name=".invictus.InvictusComment"
             android:label="@string/title_activity_invictus_comment"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">

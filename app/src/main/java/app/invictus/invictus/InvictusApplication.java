@@ -1,4 +1,4 @@
-package app.invictus;
+package app.invictus.invictus;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
@@ -15,6 +15,8 @@ import com.facebook.FacebookSdk;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import app.invictus.volley.LruBitmapCache;
 
 public class InvictusApplication extends Application {
 

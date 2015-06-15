@@ -3,7 +3,6 @@ package app.invictus.listAdapters;
 import android.app.Activity;
 import android.content.Intent;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import app.invictus.InvictusComment;
-import app.invictus.InvictusNotes;
+import app.invictus.invictus.InvictusComment;
+import app.invictus.invictus.InvictusNotes;
 import app.invictus.R;
 
 public class MainListAdapter extends ArrayAdapter<String> {

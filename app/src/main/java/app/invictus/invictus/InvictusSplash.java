@@ -1,4 +1,4 @@
-package app.invictus;
+package app.invictus.invictus;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import app.invictus.R;
 
 public class InvictusSplash extends Activity {
 

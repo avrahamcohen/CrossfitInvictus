@@ -1,4 +1,4 @@
-    package app.invictus;
+    package app.invictus.invictus;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,8 +19,10 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import app.invictus.R;
 import app.invictus.listAdapters.CommentListAdapter;
 import app.invictus.listAdapters.MainListAdapter;
+import app.invictus.volley.HttpHandler;
 import app.invictus.widget.android.NewDataTask;
 import app.invictus.widget.android.RefreshableListView;
 
@@ -31,10 +33,7 @@ import app.invictus.widget.android.RefreshableListView;
 
     private Button commentButton;
 
-    private final String[] userName = {"Avraham Cohen", "Omer Munin", "Renata Perl", "Tomy Sela Meron", "Yaki Shoshani", "Eliran Hershko"};
-    private final String[] userComment = {"Any serious issues if we push active recovery swimming to Sundays and take Thursday off instead?", "Any serious issues if we push active recovery swimming to Sundays and take Thursday off instead?" , "Any serious issues if we push active recovery swimming to Sundays and take Thursday off instead?"};
-    private final String[] userDate = {"June 14, 2015", "June 14, 2015", "June 14, 2015"};
-    private final Integer[] userImage = {R.drawable.logo, R.drawable.logo, R.drawable.logo};
+    private HttpHandler httpHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +46,7 @@ import app.invictus.widget.android.RefreshableListView;
 
         commentButton = (Button)findViewById(R.id.commentButton);
 
+        httpHandler = new HttpHandler();
         listHandler();
 
         editText.setOnClickListener(new View.OnClickListener() {
@@ -88,8 +88,14 @@ import app.invictus.widget.android.RefreshableListView;
     }
 
     private void listHandler() {
+//        httpHandler.makeHttpRequest(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("date", ""));
+
         CommentListAdapter listAdapter = new CommentListAdapter(
-                this, userName, userComment, userDate, userImage);
+                this,
+                httpHandler.getWorkoutCommentsUserName(),
+                httpHandler.getWorkoutComments(),
+                httpHandler.getWorkoutDate(),
+                httpHandler.getWorkoutCommentsUserPhoto());
         mListView = (RefreshableListView)findViewById(R.id.list);
         mListView.setAdapter(listAdapter);
 

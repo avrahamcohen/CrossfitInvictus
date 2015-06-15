@@ -2,9 +2,8 @@ package app.invictus.widget.android;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
-import app.invictus.InvictusConstants;
+import app.invictus.invictus.InvictusConstants;
 
 public class NewDataTask extends AsyncTask<Void, Void, String> {
 

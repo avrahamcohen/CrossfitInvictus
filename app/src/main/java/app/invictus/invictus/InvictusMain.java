@@ -1,18 +1,17 @@
-package app.invictus;
+package app.invictus.invictus;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
+import app.invictus.R;
 import app.invictus.listAdapters.MainListAdapter;
+import app.invictus.volley.HttpHandler;
 import app.invictus.widget.android.NewDataTask;
 import app.invictus.widget.android.RefreshableListView;
 
@@ -24,7 +23,7 @@ public class InvictusMain extends Activity {
     private Button fitnessButton;
     private Button competitionButton;
 
-    private InvictusHttpHandler invictusHttpHandler;
+    private HttpHandler httpHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class InvictusMain extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        invictusHttpHandler = new InvictusHttpHandler();
+        httpHandler = new HttpHandler();
 
         listHandler();
         buttonsHandlers();
@@ -61,9 +60,9 @@ public class InvictusMain extends Activity {
     }
 
     private void listHandler() {
-        invictusHttpHandler.makeHttpRequest(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("date", ""));
+//        httpHandler.makeHttpRequest(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getString("date", ""));
         MainListAdapter listAdapter = new MainListAdapter(
-                this, invictusHttpHandler.getWorkoutDate(), invictusHttpHandler.getworkoutDescription());
+                this, httpHandler.getWorkoutDate(), httpHandler.getWorkoutDescription());
 
         mListView = (RefreshableListView)findViewById(R.id.list);
         mListView.setAdapter(listAdapter);

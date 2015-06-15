@@ -1,4 +1,4 @@
-package app.invictus;
+package app.invictus.invictus;
 
 import java.util.Arrays;
 import java.util.List;

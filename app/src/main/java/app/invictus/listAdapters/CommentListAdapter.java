@@ -40,10 +40,10 @@ public class CommentListAdapter extends ArrayAdapter<String> {
         final ImageView userImageView = (ImageView) rowView.findViewById(R.id.userPhoto);
         final TextView userCommentTextView = (TextView) rowView.findViewById(R.id.userComment);
 
-//        userDateTextView.setText(userDate[position]);
+        userDateTextView.setText(userDate[position]);
         userNameTextView.setText(userName[position]);
-//        userImageView.setImageResource(R.drawable.logo);
-//        userCommentTextView.setText(userComment[position]);
+        userImageView.setImageResource(R.drawable.logo);
+        userCommentTextView.setText(userComment[position]);
 
         return rowView;
     };

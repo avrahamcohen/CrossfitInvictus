@@ -29,7 +29,6 @@
             android:layout_below="@id/applicationTitle"
             android:layout_marginTop="1dip"
             android:layout_toRightOf="@+id/userPhoto"
-            android:text="Avi Cohen"
             android:textSize="@dimen/abc_text_size_medium_material"
             android:textStyle="italic" />
 
@@ -39,8 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/userName"
             android:layout_marginTop="8dp"
-            android:layout_toRightOf="@+id/userPhoto"
-            android:text="It was an hard one !" />
+            android:layout_toRightOf="@+id/userPhoto" />
 
         <ImageView
             android:id="@+id/userPhoto"
